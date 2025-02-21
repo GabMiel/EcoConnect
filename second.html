@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoConnect sa Pwet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #f4f4eb;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #228B22;
+            display: flex;
+            align-items: center;
+        }
+        .date {
+            margin-left: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-left: auto;
+        }
+        .search-container img {
+            position: absolute;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        .search-container input {
+            padding-left: 40px;
+            width: 300px;
+        }
+        .user-icon {
+            margin-left: 15px;
+        }
+        .hero-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .event-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .footer {
+            background-color: #228B22;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="d-flex align-items-center">
+            <img src="C:\EcoConnect\Image\1.png" alt="EcoConnect Logo" width="160px">
+            <span class="date" id="currentDate"></span>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="search-container">
+                <img src="C:\EcoConnect\Image\7.png" alt="Search Icon">
+                <input type="text" class="form-control" placeholder="Search events and announcements...">
+            </div>
+            <div class="user-icon">
+                <img src="C:\EcoConnect\Image\2.png" alt="User Icon" width="30px">
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="hero-section p-4">
+            <h2>Community Tree Planting</h2>
+            <p>Feb 15, 2024 - Bassa Central Park</p>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="event-card">
+                    <h5>Sustainable Living Workshop</h5>
+                    <p>Feb 20, 2024 - Bassa Community Center</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="event-card">
+                    <h5>Animal Spay/Neuter</h5>
+                    <p>Feb 25, 2024 - Barangay Bassa River</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="event-card">
+                    <h5>River Cleanup Drive</h5>
+                    <p>Mar 5, 2024 - Barangay River Park</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Contact Administrator</p>
+        <p>For posting new projects, events, or announcements, please contact:</p>
+        <p>📧 admin@ecoconnect.com | 📞 +63 912 345 6789</p>
+    </div>
+
+    <script>
+        document.getElementById('currentDate').innerText = new Date().toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    </script>
+    
+</body>
+</html>
