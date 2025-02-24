@@ -44,33 +44,92 @@
         }
         .search-container input {
             padding-left: 40px;
-            width: 400px;
-            border: 2px solid #1c8000;
-            border-radius: 5px;
+            width: 450px;
+            border-width: 5px;
         }
         .user-icon {
             margin-left: 15px;
+            position: relative;
+            cursor: pointer;
         }
-        .hero-section {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
+        .user-icon button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background-color: #fdfbe9;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            border-radius: 5px;
+            width: 250px;
+            height: 500px;
+            display: none;
+            padding: 10px;
         }
-        .event-card {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .dropdown-menu.active {
+            display: block;
+        }
+        .dropdown-menu .header {
+            font-weight: bold;
+            color: #228B22;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            font-size: 18px;
+        }
+        .dropdown-menu .header span {
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .dropdown-menu .sign-out {
+            color: red;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .container {
+            margin: 20px auto;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card {
+            background-color: #e0e0e0;
+            border-radius: 10px;
             margin-bottom: 20px;
         }
-        .footer {
-            background-color: #228B22;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
+        .large-card {
+            width: 100%;
+            height: 200px;
+        }
+        .small-card-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .small-card {
+            flex: 1;
+            min-width: 415px;
+            height: 250px;
+            max-width: 30%;
+        }
+        @media (max-width: 768px) {
+            .small-card {
+                max-width: 45%;
+            }
+        }
+        @media (max-width: 480px) {
+            .small-card {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -86,43 +145,26 @@
                 <input type="text" class="form-control" placeholder="Search events and announcements...">
             </div>
             <div class="user-icon">
-                <img src="C:\EcoConnect\Image\2.png" alt="User Icon" width="30px">
+                <button onclick="toggleDropdown()">
+                    <img src="C:\EcoConnect\Image\2.png" alt="User Icon" width="30px">
+                </button>
+                <div class="dropdown-menu" id="userDropdown">
+                    <div class="header">Administrator <span onclick="toggleDropdown()">&times;</span></div>
+                    <div class="sign-out" onclick="signOut()">
+                        <span>&#10145;</span> Sign Out
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-4">
-        <div class="hero-section p-4">
-            <h2>Community Tree Planting</h2>
-            <p>Feb 15, 2024 - Bassa Central Park</p>
+    <div class="container">
+        <div class="card large-card"></div>
+        <div class="small-card-container">
+            <div class="card small-card"></div>
+            <div class="card small-card"></div>
+            <div class="card small-card"></div>
         </div>
-
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <div class="event-card">
-                    <h5>Sustainable Living Workshop</h5>
-                    <p>Feb 20, 2024 - Bassa Community Center</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="event-card">
-                    <h5>Animal Spay/Neuter</h5>
-                    <p>Feb 25, 2024 - Barangay Bassa River</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="event-card">
-                    <h5>River Cleanup Drive</h5>
-                    <p>Mar 5, 2024 - Barangay River Park</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>Contact Administrator</p>
-        <p>For posting new projects, events, or announcements, please contact:</p>
-        <p>📧 admin@ecoconnect.com | 📞 +63 912 345 6789</p>
     </div>
 
     <script>
@@ -132,7 +174,15 @@
             month: 'long',
             day: 'numeric'
         });
+
+        function toggleDropdown() {
+            document.getElementById('userDropdown').classList.toggle('active');
+        }
+
+        function signOut() {
+            alert('Signing out...');
+            // Implement actual sign-out logic here
+        }
     </script>
-    
 </body>
 </html>
